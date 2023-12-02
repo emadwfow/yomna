@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>حل مسائل جدول الضرب 6</title>
+  <style>
+    body {
+     background-image: url("سحاب.jpg");
+      background-position: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    
+    #problem {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    form label {
+      margin-right: 5px;
+      font-size: 18px;
+      color: #333;
+    }
+    
+    form input[type="number"] {
+      padding: 5px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    
+    form button {
+      padding: 5px 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    #result {
+      text-align: center;
+      font-size: 20px;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      /* تعديلات للأجهزة ذات حجم أقل من 768 بكسل */
+      h1 {
+        font-size: 24px;
+      }
+      
+      #problem {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      
+      form label {
+        font-size: 16px;
+      }
+      
+      form input[type="number"] {
+        font-size: 16px;
+      }
+      
+      form button {
+        padding: 3px 8px;
+        font-size: 16px;
+      }
+      
+      #result {
+        font-size: 18px;
+      }
+    } 
+    h2 {
+    text-align: center;
+    margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>حل مسائل جدول الضرب 6</h1>
+  
+  <div id="problem"></div>
+
+  <form>
+    <label for="answer">الجواب:</label>
+    <input type="number" id="answer" name="answer" required>
+    <button type="submit">تحقق</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const problemDiv = document.getElementById('problem');
+    const form = document.querySelector('form');
+    const resultDiv = document.getElementById('result');
+
+    const generateProblem = () => {
+      const number = Math.floor(Math.random() * 12) + 1;
+      const problem = `ما هو ناتج ضرب ${number} × 6؟`;
+      problemDiv.innerHTML = problem;
+      form.reset();
+      resultDiv.innerHTML = '';
+    };
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const answer = parseInt(document.getElementById('answer').value);
+      const number = parseInt(problemDiv.innerHTML.match(/\d+/));
+      const expectedAnswer = number * 6;
+      const result = (answer === expectedAnswer) ? 'إجابة صحيحة!' : 'إجابة خاطئة!';
+      resultDiv.innerHTML = result;
+      setTimeout(generateProblem, 2000);
+    });
+
+    generateProblem();
+  </script>
+  <h2 class="name">تقديم الطالبة : يمنى يعقوب عبدالعال</h2>
+  <h2 class="th">اشراف المعلمة: سعدية</h2>
+</body>
+</html>
